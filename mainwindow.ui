@@ -27,7 +27,7 @@
      <item>
       <widget class="QGroupBox" name="groupBox_Video">
        <property name="title">
-        <string>GroupBox</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -68,9 +68,9 @@
 QSlider::handle:horizontal {
 	background-color: #58d162;
 	border: 2px solid #515451;
-	margin: -4px 0;
-	width: 8px;
-	border-radius: 5px;
+	margin: -7px 0;
+	width: 5px;
+	border-radius: 4px;
 }
 
 QSlider::add-page:horizontal {
@@ -276,9 +276,9 @@ QSlider::sub-page:horizontal {
 QSlider::handle:vertical  {
 	background-color: #58d162;
 	border: 2px solid #515451;
-	margin: 0 -4px;
-	height: 8px;
-	border-radius: 5px;
+	margin: 0 -7px;
+	height: 5px;
+	border-radius: 4px;
 }
 
 QSlider::add-page:vertical  {
