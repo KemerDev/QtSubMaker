@@ -10,7 +10,7 @@ class InfoWindow;
 }
 QT_END_NAMESPACE
 
-class InfoWindow : public QDialog
+class InfoWindow : public QWidget
 {
     Q_OBJECT
 public:

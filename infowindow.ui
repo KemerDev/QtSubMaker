@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>InfoWindow</class>
- <widget class="QDialog" name="InfoWindow">
+ <widget class="QWidget" name="InfoWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>480</height>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,14 +16,17 @@
   <property name="layoutDirection">
    <enum>Qt::RightToLeft</enum>
   </property>
-  <widget class="QWidget" name="widgetContainer" native="true">
+  <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>641</width>
+     <width>640</width>
      <height>720</height>
     </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget
@@ -32,538 +35,556 @@
 	color: white;
 }</string>
    </property>
-   <widget class="QWidget" name="verticalWidget" native="true">
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>591</width>
-      <height>31</height>
+      <x>0</x>
+      <y>0</y>
+      <width>623</width>
+      <height>720</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+    <widget class="QWidget" name="verticalWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>570</y>
+       <width>591</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_15">
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="styleSheet">
+         <string notr="true">QWidget
 {
-	background-color: #35373b;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+        background-color: #35373b;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Common Attributes</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_2" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>131</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+        </property>
+        <property name="text">
+         <string>Image and Video Attributes</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_12" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>600</y>
+       <width>131</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
+        background-color: #35373b;
+        border-bottom-left-radius: 5px;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QLabel" name="TitleLabel">
-       <property name="text">
-        <string>Title</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="DescriptionLabel">
-       <property name="text">
-        <string>Description</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="DateLabel">
-       <property name="text">
-        <string>Date</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QFrame" name="verticalFrame_3">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>40</y>
-      <width>461</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_16">
+      <item>
+       <widget class="QLabel" name="OrientationLabel">
+        <property name="text">
+         <string>Orientation</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="ResolutionLabel">
+        <property name="text">
+         <string>Resolution</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>131</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #53565c;
-	border-top-left-radius: 3px;
+        background-color: #35373b;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QLabel" name="TitleTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="DescriptionTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="DateTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_4" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>190</y>
-      <width>131</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="TitleLabel">
+        <property name="text">
+         <string>Title</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="DescriptionLabel">
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="DateLabel">
+        <property name="text">
+         <string>Date</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_5" native="true">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>190</y>
+       <width>461</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
+        background-color: #53565c;
+        border-top-left-radius: 3px;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_4">
-     <item>
-      <widget class="QLabel" name="MediaTypeLabel">
-       <property name="text">
-        <string>Media Type</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="FileFormatLabel">
-       <property name="text">
-        <string>File Format</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="DurationLabel">
-       <property name="text">
-        <string>Duration</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_5" native="true">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>190</y>
-      <width>461</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QLabel" name="MediaTypeTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="FileFormatTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="DurationTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_9" native="true">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>330</y>
+       <width>461</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #53565c;
-	border-top-left-radius: 3px;
+        background-color: #53565c;
+        border-top-left-radius: 3px;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <item>
-      <widget class="QLabel" name="MediaTypeTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="FileFormatTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="DurationTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QScrollBar" name="verticalScrollBar">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>10</y>
-      <width>16</width>
-      <height>461</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_6" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>160</y>
-      <width>591</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_9">
+      <item>
+       <widget class="QLabel" name="VideoFrameRateTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="VideoBitRateTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="VideoCodecTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>591</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
+        background-color: #35373b;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_6">
-     <item>
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Media Attributes</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_7" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>300</y>
-      <width>591</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Common Attributes</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_8" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>131</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
+        background-color: #35373b;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_7">
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Video Attributes</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_8" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>330</y>
-      <width>131</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_8">
+      <item>
+       <widget class="QLabel" name="VideoFrameRateLabel">
+        <property name="text">
+         <string>VideoFrameRate</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="VideoBitRateLabel">
+        <property name="text">
+         <string>VideoBitRate</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="VideoCodecLabel">
+        <property name="text">
+         <string>VideoCodec</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="verticalFrame_3">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>40</y>
+       <width>461</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
+        background-color: #53565c;
+        border-top-left-radius: 3px;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_8">
-     <item>
-      <widget class="QLabel" name="VideoFrameRateLabel">
-       <property name="text">
-        <string>VideoFrameRate</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="VideoBitRateLabel">
-       <property name="text">
-        <string>VideoBitRate</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="VideoCodecLabel">
-       <property name="text">
-        <string>VideoCodec</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_9" native="true">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>330</y>
-      <width>461</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="TitleTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="DescriptionTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="DateTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_13" native="true">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>600</y>
+       <width>461</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #53565c;
-	border-top-left-radius: 3px;
+        background-color: #53565c;
+        border-top-left-radius: 3px;
+        border-bottom-right-radius: 5px;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_9">
-     <item>
-      <widget class="QLabel" name="VideoFrameRateTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="VideoBitRateTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="VideoCodecTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>430</y>
-      <width>591</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_13">
+      <item>
+       <widget class="QLabel" name="OrientationTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="ResolutionTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_10" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>460</y>
+       <width>131</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
+        background-color: #35373b;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_10">
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Audio Attributes</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_2" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>460</y>
-      <width>131</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_11">
+      <item>
+       <widget class="QLabel" name="AudioBitRateLabel">
+        <property name="text">
+         <string>AudioBitRate</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="AudioCodecLabel">
+        <property name="text">
+         <string>AudioCodec</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_3" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>430</y>
+       <width>591</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
+        background-color: #35373b;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_11">
-     <item>
-      <widget class="QLabel" name="AudioBitRateLabel">
-       <property name="text">
-        <string>AudioBitRate</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="AudioCodecLabel">
-       <property name="text">
-        <string>AudioCodec</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_3" native="true">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>460</y>
-      <width>461</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_10">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Audio Attributes</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_4" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>131</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #53565c;
-	border-top-left-radius: 3px;
+        background-color: #35373b;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_12">
-     <item>
-      <widget class="QLabel" name="AudioBitRateTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="AudioCodecTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_12" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>600</y>
-      <width>131</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="MediaTypeLabel">
+        <property name="text">
+         <string>Media Type</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="FileFormatLabel">
+        <property name="text">
+         <string>File Format</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="DurationLabel">
+        <property name="text">
+         <string>Duration</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_6" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>160</y>
+       <width>591</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
-	border-bottom-left-radius: 5px;
+        background-color: #35373b;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_16">
-     <item>
-      <widget class="QLabel" name="OrientationLabel">
-       <property name="text">
-        <string>Orientation</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="ResolutionLabel">
-       <property name="text">
-        <string>Resolution</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalWidget_10" native="true">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>600</y>
-      <width>461</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Media Attributes</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_7" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>300</y>
+       <width>591</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #53565c;
-	border-top-left-radius: 3px;
-	border-bottom-right-radius: 5px;
+        background-color: #35373b;
 }</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_13">
-     <item>
-      <widget class="QLabel" name="OrientationTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="ResolutionTxtLabel">
-       <property name="text">
-        <string>No Data</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>570</y>
-      <width>591</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_15">
-     <item>
-      <widget class="QLabel" name="label_6">
-       <property name="styleSheet">
-        <string notr="true">QWidget
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_7">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Video Attributes</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalWidget_11" native="true">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>460</y>
+       <width>461</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget
 {
-	background-color: #35373b;
+        background-color: #53565c;
+        border-top-left-radius: 3px;
 }</string>
-       </property>
-       <property name="text">
-        <string>Image and Video Attributes</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_12">
+      <item>
+       <widget class="QLabel" name="AudioBitRateTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="AudioCodecTxtLabel">
+        <property name="text">
+         <string>No Data</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
  </widget>

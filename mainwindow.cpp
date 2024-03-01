@@ -132,23 +132,24 @@ void MainWindow::on_actionVideo_Info_Ctrl_Alt_I_triggered()
     InfoWindow *infoWindow = new InfoWindow();
     Ui::InfoWindow *infoWindowUi = infoWindow->getUi();
 
-    if (MediaPlayer->mediaStatus() == QMediaPlayer::LoadedMedia)
-    {
-        infoWindowUi->TitleTxtLabel->setText(vTitle);
-        infoWindowUi->DescriptionTxtLabel->setText(vDescription);
+    vTitle.isEmpty() ? infoWindowUi->TitleTxtLabel->setText("No Data Available") : infoWindowUi->TitleTxtLabel->setText(vTitle);
 
-        QDateTime dateTime = QDateTime::fromString(vDate, "yyyy-MM-ddTHH:mm:ss.zzzZ");
-        infoWindowUi->DateTxtLabel->setText(dateTime.toString("yyyy-MM-dd hh:mm:ss"));
+    vDescription.isEmpty() ? infoWindowUi->DescriptionTxtLabel->setText("No Data Available") : infoWindowUi->DescriptionTxtLabel->setText(vDescription);
 
-        infoWindowUi->MediaTypeTxtLabel->setText(vMediaType);
-        infoWindowUi->FileFormatTxtLabel->setText(vFileFormat);
-        infoWindowUi->DurationTxtLabel->setText(vDuration);
+    QDateTime dateTime = QDateTime::fromString(vDate, "yyyy-MM-ddTHH:mm:ss.zzzZ");
+    dateTime.isNull() ? infoWindowUi->DateTxtLabel->setText("No Data Available") : infoWindowUi->DateTxtLabel->setText(dateTime.toString("yyyy-MM-dd hh:mm:ss"));
 
-        infoWindowUi->VideoFrameRateTxtLabel->setText(vVideoFrameRate + " frames/s");
-        infoWindowUi->VideoBitRateTxtLabel->setText(vVideoBitRate + " bit/s");
-        infoWindowUi->VideoCodecTxtLabel->setText(vVideoCodec + " codec");
+    vMediaType.isEmpty() ? infoWindowUi->MediaTypeTxtLabel->setText("No Data Available") : infoWindowUi->MediaTypeTxtLabel->setText(vMediaType);
+    vFileFormat.isEmpty() ? infoWindowUi->FileFormatTxtLabel->setText("No Data Available") : infoWindowUi->FileFormatTxtLabel->setText(vFileFormat);
+    vDuration.isEmpty() ? infoWindowUi->DurationTxtLabel->setText("No Data Available") : infoWindowUi->DurationTxtLabel->setText(vDuration);
 
-    }
+    vVideoFrameRate.isEmpty() ? infoWindowUi->VideoFrameRateTxtLabel->setText("No Data Available") : infoWindowUi->VideoFrameRateTxtLabel->setText(vVideoFrameRate + " frames/s");
+    vVideoBitRate.isEmpty() ? infoWindowUi->VideoBitRateTxtLabel->setText("No Data Available") : infoWindowUi->VideoBitRateTxtLabel->setText(vVideoBitRate + " bit/s");
+    vVideoCodec.isEmpty() ? infoWindowUi->VideoCodecTxtLabel->setText("No Data Available") : infoWindowUi->VideoCodecTxtLabel->setText(vVideoCodec + " codec");
+
+    vOrientation.isEmpty() ? infoWindowUi->OrientationTxtLabel->setText("No Data Available") : infoWindowUi->OrientationTxtLabel->setText(vOrientation + " ratio");
+    vResolution.isEmpty() ? infoWindowUi->ResolutionTxtLabel->setText("No Data Available") : infoWindowUi->ResolutionTxtLabel->setText(vResolution);
+
     infoWindow->show();
 }
 
