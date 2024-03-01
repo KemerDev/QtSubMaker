@@ -385,6 +385,7 @@ QSlider::sub-page:vertical  {
      <string>Video</string>
     </property>
     <addaction name="actionOpen_Video_Ctrl_Alt_O"/>
+    <addaction name="actionVideo_Info_Ctrl_Alt_I"/>
    </widget>
    <addaction name="menuSubtitle"/>
    <addaction name="menuVideo"/>
@@ -413,6 +414,11 @@ QSlider::sub-page:vertical  {
   <action name="actionOpen_Video_Ctrl_Alt_O">
    <property name="text">
     <string>Open Ctrl+Alt+O</string>
+   </property>
+  </action>
+  <action name="actionVideo_Info_Ctrl_Alt_I">
+   <property name="text">
+    <string>Video Info Ctrl+Alt+I</string>
    </property>
   </action>
  </widget>

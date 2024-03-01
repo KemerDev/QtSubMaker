@@ -1,5 +1,7 @@
 #include "mainwindow.h"
+#include "ui_infowindow.h"
 #include "ui_mainwindow.h"
+#include "infowindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -30,6 +32,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     QShortcut *openVideoShort = new QShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_O), this);
     connect(openVideoShort, &QShortcut::activated, this, &MainWindow::on_actionOpen_Video_Ctrl_Alt_O_triggered);
+
+    QShortcut *openInfoShort = new QShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_I), this);
+    connect(openInfoShort, &QShortcut::activated, this, &MainWindow::on_actionVideo_Info_Ctrl_Alt_I_triggered);
 
     QShortcut *playPauseVideo = new QShortcut(QKeySequence(Qt::Key_Space), this);
     connect(playPauseVideo, &QShortcut::activated, this, &MainWindow::on_pushButton_Play_Stop_clicked);
@@ -85,6 +90,8 @@ void MainWindow::on_actionOpen_Video_Ctrl_Alt_O_triggered()
 
     MediaPlayer->setVideoOutput(Video);
 
+    connect(MediaPlayer, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::onMediaStatusChanged);
+
     MediaPlayer->setSource(QUrl(FileName));
 
     MediaPlayer->setAudioOutput(MediaAudioOutput);
@@ -94,11 +101,61 @@ void MainWindow::on_actionOpen_Video_Ctrl_Alt_O_triggered()
     Video->show();
 }
 
+void MainWindow::onMediaStatusChanged()
+{
+    QMediaMetaData metaData = MediaPlayer->metaData();
+
+    if (MediaPlayer->mediaStatus() == QMediaPlayer::LoadedMedia)
+    {
+        vTitle = metaData.stringValue(metaData.Title);
+        vDescription = metaData.stringValue(metaData.Description);
+        vDate = metaData.stringValue(metaData.Date);
+
+        vMediaType = metaData.stringValue(metaData.MediaType);
+        vFileFormat = metaData.stringValue(metaData.FileFormat);
+        vDuration = metaData.stringValue(metaData.Duration);
+
+        vVideoFrameRate = metaData.stringValue(metaData.VideoFrameRate);
+        vVideoBitRate = metaData.stringValue(metaData.VideoBitRate);
+        vVideoCodec = metaData.stringValue(metaData.VideoCodec);
+
+        vAudioBitRate = metaData.metaDataKeyToString(metaData.AudioBitRate);
+        vAudioCodec = metaData.metaDataKeyToString(metaData.AudioCodec);
+
+        vOrientation = metaData.metaDataKeyToString(metaData.Orientation);
+        vResolution = metaData.metaDataKeyToString(metaData.Resolution);
+    }
+}
+
+void MainWindow::on_actionVideo_Info_Ctrl_Alt_I_triggered()
+{
+    InfoWindow *infoWindow = new InfoWindow();
+    Ui::InfoWindow *infoWindowUi = infoWindow->getUi();
+
+    if (MediaPlayer->mediaStatus() == QMediaPlayer::LoadedMedia)
+    {
+        infoWindowUi->TitleTxtLabel->setText(vTitle);
+        infoWindowUi->DescriptionTxtLabel->setText(vDescription);
+
+        QDateTime dateTime = QDateTime::fromString(vDate, "yyyy-MM-ddTHH:mm:ss.zzzZ");
+        infoWindowUi->DateTxtLabel->setText(dateTime.toString("yyyy-MM-dd hh:mm:ss"));
+
+        infoWindowUi->MediaTypeTxtLabel->setText(vMediaType);
+        infoWindowUi->FileFormatTxtLabel->setText(vFileFormat);
+        infoWindowUi->DurationTxtLabel->setText(vDuration);
+
+        infoWindowUi->VideoFrameRateTxtLabel->setText(vVideoFrameRate + " frames/s");
+        infoWindowUi->VideoBitRateTxtLabel->setText(vVideoBitRate + " bit/s");
+        infoWindowUi->VideoCodecTxtLabel->setText(vVideoCodec + " codec");
+
+    }
+    infoWindow->show();
+}
+
 void MainWindow::on_horizontalSlider_Duration_valueChanged(int value)
 {
     MediaPlayer->setPosition(value * 1000);
 }
-
 
 void MainWindow::on_verticalSlider_Volume_valueChanged(int value)
 {
@@ -122,7 +179,6 @@ void MainWindow::on_pushButton_seek_Backwards_clicked()
     MediaPlayer->setPosition(timeSet);
 }
 
-
 void MainWindow::on_pushButton_seek_Forwards_clicked()
 {
     qint64 milliseconds = MediaPlayer->position();
@@ -131,7 +187,6 @@ void MainWindow::on_pushButton_seek_Forwards_clicked()
     ui->horizontalSlider_Duration->setValue(timeSet / 1000);
     MediaPlayer->setPosition(timeSet);
 }
-
 
 void MainWindow::on_pushButton_Play_Stop_clicked()
 {

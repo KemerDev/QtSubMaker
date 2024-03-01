@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtMultimedia>
 #include <QtMultimediaWidgets>
+#include <QMediaMetaData>
 #include <QtCore>
 #include <QtWidgets>
 #include <QtGui>
@@ -41,6 +42,8 @@ private slots:
 
     void on_comboBox_currentTextChanged(const QString &arg1);
 
+    void on_actionVideo_Info_Ctrl_Alt_I_triggered();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *MediaPlayer;
@@ -51,6 +54,25 @@ private:
     bool IS_Paused = true;
     bool IS_Muted = false;
 
+    QString vTitle;
+    QString vDescription;
+    QString vDate;
+
+    QString vMediaType;
+    QString vFileFormat;
+    QString vDuration;
+
+    QString vAudioBitRate;
+    QString vAudioCodec;
+
+    QString vVideoFrameRate;
+    QString vVideoBitRate;
+    QString vVideoCodec;
+
+    QString vOrientation;
+    QString vResolution;
+
+    void onMediaStatusChanged();
     void updateDuration(qint64 Duration);
 };
 #endif // MAINWINDOW_H
