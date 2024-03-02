@@ -263,8 +263,6 @@ void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
 
 void MainWindow::on_addSubTimeButton_clicked()
 {
-    QString text = "Your Text";
-
     if (CurrentState == start) {
         if (ui->tableWidget->rowCount() == 0){
             ui->tableWidget->insertRow(0);
@@ -274,12 +272,12 @@ void MainWindow::on_addSubTimeButton_clicked()
             ui->tableWidget->insertRow(ui->tableWidget->rowCount());
         }
 
-        ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 0, new QTableWidgetItem(text));
+        ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 0, new QTableWidgetItem(vSubTimeSave));
 
         CurrentState = stop;
 
     } else if (CurrentState == stop) {
-        ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 1, new QTableWidgetItem(text));
+        ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 1, new QTableWidgetItem(vSubTimeSave));
 
         CurrentState = start;
 
