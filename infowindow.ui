@@ -73,291 +73,378 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_47">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_32" stretch="0,0,0,0,0,0,0,0,0,0">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetMaximumSize</enum>
+      <widget class="QWidget" name="LayoutContainer" native="true">
+       <property name="styleSheet">
+        <string notr="true">QWidget
+{
+	background-color: #35373b;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}</string>
        </property>
-       <item>
-        <widget class="QLabel" name="CattributesLabel">
-         <property name="text">
-          <string>Common attributes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
-         <property name="sizeConstraint">
-          <enum>QLayout::SetDefaultConstraint</enum>
-         </property>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_33">
+       <layout class="QVBoxLayout" name="verticalLayout_32" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMaximumSize</enum>
+        </property>
+        <item>
+         <widget class="QLabel" name="CattributesLabel">
+          <property name="text">
+           <string>Common attributes</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="CommonContainer" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
            <item>
-            <widget class="QLabel" name="TitleLabel">
-             <property name="text">
-              <string>Title</string>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_33">
+             <item>
+              <widget class="QLabel" name="TitleLabel">
+               <property name="text">
+                <string>Title</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="DecriptionLabel">
+               <property name="text">
+                <string>Description</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="DateLabel">
+               <property name="text">
+                <string>Date</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QLabel" name="DecriptionLabel">
-             <property name="text">
-              <string>Description</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="DateLabel">
-             <property name="text">
-              <string>Date</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_34">
-           <item>
-            <widget class="QLabel" name="TitleTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="DescriptionTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="DateTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="MattributesLabel">
-         <property name="text">
-          <string>Media attributes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_35">
-           <item>
-            <widget class="QLabel" name="MediaTypeLabel">
-             <property name="text">
-              <string>MediaType</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="FileFormatLabel">
-             <property name="text">
-              <string>FileFormat</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="DurationLabel">
-             <property name="text">
-              <string>Duration</string>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_34">
+             <item>
+              <widget class="QLabel" name="TitleTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="DescriptionTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="DateTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_37">
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="styleSheet">
+           <string notr="true">QWidget
+{
+	background-color: grey;
+	border-radius: 3px;
+}</string>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="MattributesLabel">
+          <property name="text">
+           <string>Media attributes</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="MediaContainer" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
-            <widget class="QLabel" name="MediaTypeTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_35">
+             <item>
+              <widget class="QLabel" name="MediaTypeLabel">
+               <property name="text">
+                <string>MediaType</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="FileFormatLabel">
+               <property name="text">
+                <string>FileFormat</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="DurationLabel">
+               <property name="text">
+                <string>Duration</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QLabel" name="FileFormatTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="DurationTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="AattributesLabel">
-         <property name="text">
-          <string>Audio attributes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_38">
-           <item>
-            <widget class="QLabel" name="AudioBitRateLabel">
-             <property name="text">
-              <string>AudioBitRate</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="AudioCodecLabel">
-             <property name="text">
-              <string>AudioCodec</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_39">
-           <item>
-            <widget class="QLabel" name="AudioBitRateTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="AudioCodecTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="VattributesLabel">
-         <property name="text">
-          <string>Video attributes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_40">
-           <item>
-            <widget class="QLabel" name="VideoFrameRateLabel">
-             <property name="text">
-              <string>VideoFrameRate</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="VideoBitRateLabel">
-             <property name="text">
-              <string>VideoBitRate</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="VideoCodecLabel">
-             <property name="text">
-              <string>VideoCodec</string>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_37">
+             <item>
+              <widget class="QLabel" name="MediaTypeTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="FileFormatTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="DurationTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_42">
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_2">
+          <property name="styleSheet">
+           <string notr="true">QWidget
+{
+	background-color: grey;
+}</string>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="AattributesLabel">
+          <property name="text">
+           <string>Audio attributes</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="AudioContainer" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="QLabel" name="VideoFrameRateTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_38">
+             <item>
+              <widget class="QLabel" name="AudioBitRateLabel">
+               <property name="text">
+                <string>AudioBitRate</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="AudioCodecLabel">
+               <property name="text">
+                <string>AudioCodec</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QLabel" name="VideoBitRateTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="VideoCodecTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="IattributesLabel">
-         <property name="text">
-          <string>Image and video attributes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_43">
-           <item>
-            <widget class="QLabel" name="ResolutionLabel">
-             <property name="text">
-              <string>Resolution</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="OrientationLabel">
-             <property name="text">
-              <string>Orientation</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_44">
-           <item>
-            <widget class="QLabel" name="ResolutionTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="OrientationTxtLabel">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_39">
+             <item>
+              <widget class="QLabel" name="AudioBitRateTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="AudioCodecTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
-         </item>
-        </layout>
-       </item>
-      </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_3">
+          <property name="styleSheet">
+           <string notr="true">QWidget
+{
+	background-color: grey;
+}</string>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="VattributesLabel">
+          <property name="text">
+           <string>Video attributes</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="VideoContainer" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_40">
+             <item>
+              <widget class="QLabel" name="VideoFrameRateLabel">
+               <property name="text">
+                <string>VideoFrameRate</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="VideoBitRateLabel">
+               <property name="text">
+                <string>VideoBitRate</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="VideoCodecLabel">
+               <property name="text">
+                <string>VideoCodec</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_42">
+             <item>
+              <widget class="QLabel" name="VideoFrameRateTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="VideoBitRateTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="VideoCodecTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_4">
+          <property name="styleSheet">
+           <string notr="true">QWidget
+{
+	background-color: grey;
+}</string>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="IattributesLabel">
+          <property name="text">
+           <string>Image and video attributes</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="ImageContainer" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_43">
+             <item>
+              <widget class="QLabel" name="ResolutionLabel">
+               <property name="text">
+                <string>Resolution</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="OrientationLabel">
+               <property name="text">
+                <string>Orientation</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_44">
+             <item>
+              <widget class="QLabel" name="ResolutionTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="OrientationTxtLabel">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </item>
     </layout>
    </widget>
