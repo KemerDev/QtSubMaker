@@ -119,11 +119,11 @@ void MainWindow::onMediaStatusChanged()
         vVideoBitRate = metaData.stringValue(metaData.VideoBitRate);
         vVideoCodec = metaData.stringValue(metaData.VideoCodec);
 
-        vAudioBitRate = metaData.metaDataKeyToString(metaData.AudioBitRate);
-        vAudioCodec = metaData.metaDataKeyToString(metaData.AudioCodec);
+        vAudioBitRate = metaData.stringValue(metaData.AudioBitRate);
+        vAudioCodec = metaData.stringValue(metaData.AudioCodec);
 
-        vOrientation = metaData.metaDataKeyToString(metaData.Orientation);
-        vResolution = metaData.metaDataKeyToString(metaData.Resolution);
+        vOrientation = metaData.stringValue(metaData.Orientation);
+        vResolution = metaData.stringValue(metaData.Resolution);
     }
 }
 
@@ -142,6 +142,9 @@ void MainWindow::on_actionVideo_Info_Ctrl_Alt_I_triggered()
     vMediaType.isEmpty() ? infoWindowUi->MediaTypeTxtLabel->setText("No Data Available") : infoWindowUi->MediaTypeTxtLabel->setText(vMediaType);
     vFileFormat.isEmpty() ? infoWindowUi->FileFormatTxtLabel->setText("No Data Available") : infoWindowUi->FileFormatTxtLabel->setText(vFileFormat);
     vDuration.isEmpty() ? infoWindowUi->DurationTxtLabel->setText("No Data Available") : infoWindowUi->DurationTxtLabel->setText(vDuration);
+
+    vAudioBitRate.isEmpty() ? infoWindowUi->AudioBitRateTxtLabel->setText("No Data Available") : infoWindowUi->AudioBitRateTxtLabel->setText(vAudioBitRate + " bit/s");
+    vAudioCodec.isEmpty() ? infoWindowUi->AudioCodecTxtLabel->setText("No Data Available") : infoWindowUi->AudioCodecTxtLabel->setText(vAudioCodec + " codec");
 
     vVideoFrameRate.isEmpty() ? infoWindowUi->VideoFrameRateTxtLabel->setText("No Data Available") : infoWindowUi->VideoFrameRateTxtLabel->setText(vVideoFrameRate + " frames/s");
     vVideoBitRate.isEmpty() ? infoWindowUi->VideoBitRateTxtLabel->setText("No Data Available") : infoWindowUi->VideoBitRateTxtLabel->setText(vVideoBitRate + " bit/s");
