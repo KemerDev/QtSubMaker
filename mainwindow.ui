@@ -123,6 +123,15 @@ QSlider::sub-page:horizontal {
 	width: 45px;
 	height: 37px;
     border: 1px solid #000000;
+	color: white;
+}
+
+QPushButton:hover {
+    background-color: #7c7b78; /* Change color on hover */
+}
+
+QPushButton:pressed {
+    background-color: #6c6b68;
 }</string>
          </property>
          <property name="text">
@@ -161,6 +170,15 @@ QSlider::sub-page:horizontal {
 	width: 45px;
 	height: 37px;
     border: 1px solid #000000;
+	color: white;
+}
+
+QPushButton:hover {
+    background-color: #7c7b78; /* Change color on hover */
+}
+
+QPushButton:pressed {
+    background-color: #6c6b68;
 }</string>
          </property>
          <property name="text">
@@ -202,6 +220,15 @@ QSlider::sub-page:horizontal {
 	width: 45px;
 	height: 37px;
     border: 1px solid #000000;
+	color: white;
+}
+
+QPushButton:hover {
+    background-color: #7c7b78; /* Change color on hover */
+}
+
+QPushButton:pressed {
+    background-color: #6c6b68;
 }</string>
          </property>
          <property name="text">
@@ -391,6 +418,37 @@ QSlider::sub-page:vertical  {
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="addSubTimeButton">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>330</y>
+      <width>91</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+	background-color:  #91908d;
+	width: 45px;
+	height: 37px;
+    border: 1px solid #000000;
+	color: white;
+}
+
+QPushButton:hover {
+    background-color: #7c7b78; /* Change color on hover */
+}
+
+QPushButton:pressed {
+    background-color: #6c6b68; /* Change color when pressed */
+}</string>
+    </property>
+    <property name="text">
+     <string>Add Sub Time</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

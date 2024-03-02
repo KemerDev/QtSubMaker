@@ -105,7 +105,7 @@ void MainWindow::on_actionOpen_Video_Ctrl_Alt_O_triggered()
 
     MediaPlayer->setVideoOutput(Video);
 
-    connect(MediaPlayer, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::onMediaStatusChanged);
+    connect(MediaPlayer, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::on_MediaStatusChanged);
 
     MediaPlayer->setSource(QUrl(FileName));
 
@@ -116,7 +116,7 @@ void MainWindow::on_actionOpen_Video_Ctrl_Alt_O_triggered()
     Video->show();
 }
 
-void MainWindow::onMediaStatusChanged()
+void MainWindow::on_MediaStatusChanged()
 {
     QMediaMetaData metaData = MediaPlayer->metaData();
 
@@ -196,8 +196,6 @@ void MainWindow::on_keyVolume_valueChange()
     if (!volShortcut)
         return;
 
-    qint64 volValue = ui->verticalSlider_Volume->value();
-
     if (volShortcut->key().toString() == "Up")
     {
         if (ui->verticalSlider_Volume->value() + 5 >= 100)
@@ -261,4 +259,30 @@ void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
     qint64 msSeek = numberString.toInt();
 
     mDurationSeekFB = msSeek;
+}
+
+void MainWindow::on_addSubTimeButton_clicked()
+{
+    QString text = "Your Text";
+
+    if (CurrentState == start) {
+        if (ui->tableWidget->rowCount() == 0){
+            ui->tableWidget->insertRow(0);
+        }
+        else
+        {
+            ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+        }
+
+        ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 0, new QTableWidgetItem(text));
+
+        CurrentState = stop;
+
+    } else if (CurrentState == stop) {
+        ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 1, new QTableWidgetItem(text));
+
+        CurrentState = start;
+
+        ui->tableWidget->verticalScrollBar()->setValue(ui->tableWidget->verticalScrollBar()->maximum());
+    }
 }

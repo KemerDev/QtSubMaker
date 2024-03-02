@@ -44,6 +44,8 @@ private slots:
 
     void on_actionVideo_Info_Ctrl_Alt_I_triggered();
 
+    void on_addSubTimeButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *MediaPlayer;
@@ -74,7 +76,13 @@ private:
 
     QString vSubTimeSave;
 
-    void onMediaStatusChanged();
+    enum vStateMode {start, stop};
+    vStateMode CurrentState = start;
+
+    int vCurrentRow = 0;
+    int vCurrentColumn = 0;
+
+    void on_MediaStatusChanged();
     void on_keyVolume_valueChange();
     void updateDuration(qint64 Duration);
 };
