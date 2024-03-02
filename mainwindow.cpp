@@ -3,6 +3,8 @@
 #include "ui_mainwindow.h"
 #include "infowindow.h"
 
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -44,6 +46,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     QShortcut *seekForwards = new QShortcut(QKeySequence(Qt::Key_Right), this);
     connect(seekForwards, &QShortcut::activated, this, &MainWindow::on_pushButton_seek_Forwards_clicked);
+
+    QShortcut *increaseVolume = new QShortcut(QKeySequence(Qt::Key_Up), this);
+    connect(increaseVolume, &QShortcut::activated, this, &MainWindow::on_keyVolume_valueChange);
+
+    QShortcut *decreaseVolume = new QShortcut(QKeySequence(Qt::Key_Down), this);
+    connect(decreaseVolume, &QShortcut::activated, this, &MainWindow::on_keyVolume_valueChange);
+
+    ui->tableWidget->setColumnWidth(0, 200);
+    ui->tableWidget->setColumnWidth(1, 200);
+    ui->tableWidget->setColumnWidth(2, 500);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Fixed);
 }
 
 MainWindow::~MainWindow()
@@ -73,6 +86,8 @@ void MainWindow::updateDuration(qint64 Duration)
         QTime CurrentTime(((Duration / 1000) / 3600) % 60, ((Duration / 1000) / 60) % 60, (Duration / 1000) % 60, Duration % 1000);
 
         QString Format = "hh:mm:ss,zzz";
+
+        vSubTimeSave = CurrentTime.toString(Format);
 
         ui->label_current_Time->setText(CurrentTime.toString(Format));
     }
@@ -171,6 +186,39 @@ void MainWindow::on_verticalSlider_Volume_valueChanged(int value)
     {
         float volumeF = qPow(10, (value / 50.0) - 1);
         MediaAudioOutput->setVolume(volumeF);
+    }
+}
+
+void MainWindow::on_keyVolume_valueChange()
+{
+    QShortcut *volShortcut = qobject_cast<QShortcut*>(sender());
+
+    if (!volShortcut)
+        return;
+
+    qint64 volValue = ui->verticalSlider_Volume->value();
+
+    if (volShortcut->key().toString() == "Up")
+    {
+        if (ui->verticalSlider_Volume->value() + 5 >= 100)
+        {
+            ui->verticalSlider_Volume->setValue(100);
+        }
+        else
+        {
+            ui->verticalSlider_Volume->setValue(ui->verticalSlider_Volume->value() + 5);
+        }
+    }
+    else if (volShortcut->key().toString() == "Down")
+    {
+        if (ui->verticalSlider_Volume->value() - 5 <= 0)
+        {
+            ui->verticalSlider_Volume->setValue(0);
+        }
+        else
+        {
+            ui->verticalSlider_Volume->setValue(ui->verticalSlider_Volume->value() - 5);
+        }
     }
 }
 

@@ -361,6 +361,37 @@ QSlider::sub-page:vertical  {
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>420</y>
+      <width>961</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <column>
+        <property name="text">
+         <string>Start_Time</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Stop_Time</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Sub_Text</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

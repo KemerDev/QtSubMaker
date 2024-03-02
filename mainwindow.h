@@ -72,7 +72,10 @@ private:
     QString vOrientation;
     QString vResolution;
 
+    QString vSubTimeSave;
+
     void onMediaStatusChanged();
+    void on_keyVolume_valueChange();
     void updateDuration(qint64 Duration);
 };
 #endif // MAINWINDOW_H
