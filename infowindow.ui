@@ -61,8 +61,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>638</width>
-      <height>478</height>
+      <width>621</width>
+      <height>509</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -74,6 +74,12 @@
     <layout class="QVBoxLayout" name="verticalLayout_47">
      <item>
       <widget class="QWidget" name="LayoutContainer" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="styleSheet">
         <string notr="true">QWidget
 {
@@ -84,10 +90,74 @@
 	border-bottom-right-radius: 5px;
 }</string>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_32" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+       <layout class="QVBoxLayout" name="verticalLayout_32" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <property name="sizeConstraint">
          <enum>QLayout::SetMaximumSize</enum>
         </property>
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item alignment="Qt::AlignVCenter">
+         <widget class="QPushButton" name="closeInfoWindow">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+	width: 25px;
+	height: 25px;
+	font-size: 19px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+QPushButton:hover
+ {
+	background-color: red;
+}
+
+</string>
+          </property>
+          <property name="text">
+           <string>⨉</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>23</width>
+            <height>23</height>
+           </size>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QLabel" name="CattributesLabel">
           <property name="text">
@@ -155,21 +225,25 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line">
-          <property name="styleSheet">
-           <string notr="true">QWidget
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="Line" name="line">
+            <property name="styleSheet">
+             <string notr="true">QWidget
 {
 	background-color: grey;
 	border-radius: 3px;
 }</string>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="MattributesLabel">
@@ -235,20 +309,34 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_2">
-          <property name="styleSheet">
-           <string notr="true">QWidget
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="Line" name="line_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QWidget
 {
 	background-color: grey;
+	border-radius: 3px;
 }</string>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="AattributesLabel">
@@ -300,20 +388,25 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_3">
-          <property name="styleSheet">
-           <string notr="true">QWidget
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="Line" name="line_4">
+            <property name="styleSheet">
+             <string notr="true">QWidget
 {
 	background-color: grey;
+	border-radius: 3px;
 }</string>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="VattributesLabel">
@@ -379,20 +472,25 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_4">
-          <property name="styleSheet">
-           <string notr="true">QWidget
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="Line" name="line_3">
+            <property name="styleSheet">
+             <string notr="true">QWidget
 {
 	background-color: grey;
+	border-radius: 3px;
 }</string>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="IattributesLabel">

@@ -7,6 +7,8 @@ InfoWindow::InfoWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setFixedSize(640, 480);
+    this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    this->setAttribute(Qt::WA_TranslucentBackground);
 }
 
 InfoWindow::~InfoWindow()
@@ -17,4 +19,9 @@ InfoWindow::~InfoWindow()
 Ui::InfoWindow* InfoWindow::getUi()
 {
     return ui;
+}
+
+void InfoWindow::on_closeInfoWindow_clicked()
+{
+    this->close();
 }

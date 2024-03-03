@@ -1,7 +1,8 @@
 #ifndef INFOWINDOW_H
 #define INFOWINDOW_H
 
-#include <QDialog>
+#include <QtCore>
+#include <QtWidgets>
 #include <QtGui>
 
 QT_BEGIN_NAMESPACE
@@ -20,6 +21,8 @@ public:
     Ui::InfoWindow* getUi();
 
 private slots:
+
+    void on_closeInfoWindow_clicked();
 
 private:
     Ui::InfoWindow *ui;
