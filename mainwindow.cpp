@@ -27,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     mDurationSeekFB = 10;
 
+    QTime timeInit(((0 / 1000) / 3600) % 60, ((0 / 1000) / 60) % 60, (0 / 1000) % 60, 0 % 1000);
+    vSubTimeSave = timeInit.toString(vFormat);
+
     connect(MediaPlayer, &QMediaPlayer::durationChanged, this, &MainWindow::durationChanged);
     connect(MediaPlayer, &QMediaPlayer::positionChanged, this, &MainWindow::positionChanged);
 
@@ -52,6 +55,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     QShortcut *decreaseVolume = new QShortcut(QKeySequence(Qt::Key_Down), this);
     connect(decreaseVolume, &QShortcut::activated, this, &MainWindow::on_keyVolume_valueChange);
+
+    QShortcut *addSubTime = new QShortcut(QKeySequence(Qt::Key_Plus), this);
+    connect(addSubTime, &QShortcut::activated, this, &MainWindow::on_addSubTimeButton_clicked);
 
     ui->tableWidget->setColumnWidth(0, 200);
     ui->tableWidget->setColumnWidth(1, 200);
@@ -85,11 +91,9 @@ void MainWindow::updateDuration(qint64 Duration)
     {
         QTime CurrentTime(((Duration / 1000) / 3600) % 60, ((Duration / 1000) / 60) % 60, (Duration / 1000) % 60, Duration % 1000);
 
-        QString Format = "hh:mm:ss,zzz";
+        vSubTimeSave = CurrentTime.toString(vFormat);
 
-        vSubTimeSave = CurrentTime.toString(Format);
-
-        ui->label_current_Time->setText(CurrentTime.toString(Format));
+        ui->label_current_Time->setText(CurrentTime.toString(vFormat));
     }
 }
 
@@ -263,24 +267,47 @@ void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
 
 void MainWindow::on_addSubTimeButton_clicked()
 {
-    if (CurrentState == start) {
-        if (ui->tableWidget->rowCount() == 0){
-            ui->tableWidget->insertRow(0);
+    if (MediaPlayer->isPlaying() || !MediaPlayer->isPlaying())
+    {
+        if (vCurrentState == start) {
+            if (ui->tableWidget->rowCount() == 0){
+                ui->tableWidget->insertRow(0);
+            }
+            else
+            {
+                ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+            }
+
+            ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 0, new QTableWidgetItem(vSubTimeSave));
+
+            vCurrentState = stop;
+
+        } else if (vCurrentState == stop) {
+            ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 1, new QTableWidgetItem(vSubTimeSave));
+
+            vCurrentState = start;
+
+            ui->tableWidget->verticalScrollBar()->setValue(ui->tableWidget->verticalScrollBar()->maximum());
         }
-        else
+    }
+}
+
+void MainWindow::on_removeSubTimeButton_clicked()
+{
+    if (MediaPlayer->isPlaying() || !MediaPlayer->isPlaying())
+    {
+        if (vCurrentState == start)
         {
-            ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+            QTableWidgetItem* itemToDelete = ui->tableWidget->takeItem(ui->tableWidget->rowCount() - 1, 1);
+            delete itemToDelete;
+
+            vCurrentState = stop;
         }
+        else if (vCurrentState == stop)
+        {
+            ui->tableWidget->removeRow(ui->tableWidget->rowCount() - 1);
 
-        ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 0, new QTableWidgetItem(vSubTimeSave));
-
-        CurrentState = stop;
-
-    } else if (CurrentState == stop) {
-        ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 1, new QTableWidgetItem(vSubTimeSave));
-
-        CurrentState = start;
-
-        ui->tableWidget->verticalScrollBar()->setValue(ui->tableWidget->verticalScrollBar()->maximum());
+            vCurrentState = start;
+        }
     }
 }

@@ -46,6 +46,8 @@ private slots:
 
     void on_addSubTimeButton_clicked();
 
+    void on_removeSubTimeButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *MediaPlayer;
@@ -76,8 +78,10 @@ private:
 
     QString vSubTimeSave;
 
+    QString vFormat = "hh:mm:ss,zzz";
+
     enum vStateMode {start, stop};
-    vStateMode CurrentState = start;
+    vStateMode vCurrentState = start;
 
     int vCurrentRow = 0;
     int vCurrentColumn = 0;

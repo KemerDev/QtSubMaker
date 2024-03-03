@@ -424,8 +424,8 @@ QSlider::sub-page:vertical  {
      <rect>
       <x>830</x>
       <y>330</y>
-      <width>91</width>
-      <height>81</height>
+      <width>40</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -447,7 +447,38 @@ QPushButton:pressed {
 }</string>
     </property>
     <property name="text">
-     <string>Add Sub Time</string>
+     <string>Add</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="removeSubTimeButton">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>370</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+	background-color:  #91908d;
+	width: 45px;
+	height: 37px;
+    border: 1px solid #000000;
+	color: white;
+}
+
+QPushButton:hover {
+    background-color: #7c7b78; /* Change color on hover */
+}
+
+QPushButton:pressed {
+    background-color: #6c6b68; /* Change color when pressed */
+}</string>
+    </property>
+    <property name="text">
+     <string>Del</string>
     </property>
    </widget>
   </widget>
