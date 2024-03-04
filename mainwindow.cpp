@@ -59,6 +59,9 @@ MainWindow::MainWindow(QWidget *parent)
     QShortcut *addSubTime = new QShortcut(QKeySequence(Qt::Key_Plus), this);
     connect(addSubTime, &QShortcut::activated, this, &MainWindow::on_addSubTimeButton_clicked);
 
+    QShortcut *saveStrFile = new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_S), this);
+    connect(saveStrFile, &QShortcut::activated, this, &MainWindow::on_actionSave_Ctrl_S_triggered);
+
     ui->tableWidget->setColumnWidth(0, 200);
     ui->tableWidget->setColumnWidth(1, 200);
     ui->tableWidget->setColumnWidth(2, 500);
@@ -279,6 +282,7 @@ void MainWindow::on_addSubTimeButton_clicked()
             }
 
             ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 0, new QTableWidgetItem(vSubTimeSave));
+            ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 2, new QTableWidgetItem("Sample Text"));
 
             vCurrentState = stop;
 
@@ -311,3 +315,39 @@ void MainWindow::on_removeSubTimeButton_clicked()
         }
     }
 }
+
+void MainWindow::on_actionSave_Ctrl_S_triggered()
+{
+    QString strContents;
+
+    if (ui->tableWidget->rowCount() > 0)
+    {
+        for (int row = 0; row < ui->tableWidget->rowCount(); ++row)
+        {
+            QString startTime = ui->tableWidget->item(row, 0)->text();
+            QString stopTime = ui->tableWidget->item(row, 1)->text();
+            QString subText = ui->tableWidget->item(row, 2)->text();
+
+            strContents += QString::number(row + 1) + "\n";
+            strContents += startTime + " --> " + stopTime + "\n";
+            strContents += subText + "\n\n";
+        }
+
+        QString FileName = QFileDialog::getSaveFileName(nullptr, "Save SRT File", "", "SRT Files (*.srt)");
+
+        if (!FileName.isEmpty())
+        {
+            QFile file(FileName);
+
+            if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+            {
+                QTextStream out (&file);
+
+                out << strContents;
+
+                file.close();
+            }
+        }
+    }
+}
+

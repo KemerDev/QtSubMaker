@@ -48,6 +48,8 @@ private slots:
 
     void on_removeSubTimeButton_clicked();
 
+    void on_actionSave_Ctrl_S_triggered();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *MediaPlayer;
